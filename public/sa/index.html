@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">click me</button>
+    <div id="main" style="display: none;">
+        <h1 class="text">الحرية، الوطن، الثورة، المقاومة، الخلاص، الاستقلال</h1>
+        <h1 class="text">اللهجة المصرية: الحرية، الوطن، الثورة، المقاومة، النصر، الاستقلال</h1>
+        <h1 class="text">اللهجة الشامية: الحرية، الوطن، الثورة، المقاومة، الخلاص، الاستقلال</h1>
+        <h1 class="text">اللهجة الخليجية: الحرية، الوطن، الثورة، المقاومة، التحرير، الاستقلال</h1>
+        <img src="/resim1.jpg" alt="">
+        <img src="/resim2.jpg" alt="">
+        <img src="/resim3.jpg" alt="">
+        <img src="/resim4.jpg" alt="">
+        <img src="/resim5.jpg" alt="">
+        <audio id="audio" src="/irak.mp3" loop></audio>
+    </div>
+    <script>
+        const main = document.getElementById("main");
+        const btn = document.getElementById("btn");
+        const audio = document.getElementById("audio");
+        
+        const click = () => {
+            main.style.display = "block";
+            btn.style.display = "none";
+            audio.play();
+        };
+
+        btn.addEventListener("click",click);
+    </script>
+</body>
+</html>

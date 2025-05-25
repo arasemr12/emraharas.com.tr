@@ -1,6 +1,4 @@
 <script setup>
-//zeynep❤️❤️
-
 import axios from 'axios';
 import { differenceInDays, differenceInHours, differenceInMinutes, differenceInMonths, differenceInSeconds, format } from 'date-fns';
 
@@ -95,11 +93,15 @@ const pause = () => {
     audio.value.pause();
 };
 
+const sa = () => {
+    window.location.href = '/sa'
+};
+
 </script>
 
 <template>
     <div class="layout flex items-center justify-center select-none overflow-auto">
-        <audio src="/riversolo.mp3" ref="audio" controls="false" class="opacity-0 invisible hidden"></audio>
+        <audio src="/fastlife.mp3" ref="audio" controls="false" class="opacity-0 invisible hidden" loop></audio>
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 blur-[12vh] z-10 opacity-50" style="background-image:linear-gradient(to right top,#4f46e5,#7c3aed,#9333ea,#c026d3,#db2777,#e11d48);"></div>
         <div class="lg:w-2/3 w-full h-auto min-h-full flex flex-col z-20 pt-32 gap-3">
             <div class="w-full bg-gray-800/70 border-2 py-2 px-4 border-gray-700/70 backdrop-blur-sm rounded flex flex-row items-center justify-between">
@@ -167,7 +169,7 @@ const pause = () => {
                 }) }}</span>
                 <span v-if="ip">{{ ip }}</span>
             </div>
-            <span class="fixed bottom-2 left-1/2 -translate-x-1/2 opacity-30">Z❤️</span>
+            <span @click="sa" class="z-50 fixed bottom-2 left-1/2 -translate-x-1/2 opacity-30 cursor-pointer">esnek gacı sandım onu balerin ah</span>
         </div>
     </div>
 </template>
