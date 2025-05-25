@@ -94,7 +94,7 @@ const pause = () => {
 };
 
 const sa = () => {
-    window.location.href = '/sa'
+    //window.location.href = '/sa'
 };
 
 </script>
