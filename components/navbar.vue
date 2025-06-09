@@ -11,7 +11,7 @@ const nav = ref(false);
             <div class="flex flex-row items-center gap-3">
                 <nuxt-link to="/" class="navbtn">Home</nuxt-link>
                 <nuxt-link to="/contact-me">Contact Me</nuxt-link>
-                <nuxt-link to="/certificates">Certificates</nuxt-link>
+                <!--<nuxt-link to="/certificates">Certificates</nuxt-link>-->
                 <nuxt-link to="/projects">Projects</nuxt-link>
                 <nuxt-link to="/blog">Blog</nuxt-link>
             </div>
@@ -21,7 +21,7 @@ const nav = ref(false);
     <div class="fixed top-0 left-0 w-full h-full bg-black z-40 flex flex-col items-center pt-24 overflow-auto" v-if="nav">
         <nuxt-link to="/">Home</nuxt-link>
         <nuxt-link to="/contact-me">Contact Me</nuxt-link>
-        <nuxt-link to="/certificates">Certificates</nuxt-link>
+        <!--<nuxt-link to="/certificates">Certificates</nuxt-link>-->
         <nuxt-link to="/projects">Projects</nuxt-link>
         <nuxt-link to="/blog">Blog</nuxt-link>
     </div>
