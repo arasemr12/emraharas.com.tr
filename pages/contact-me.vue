@@ -11,7 +11,6 @@
                     <span>Email: arasemr1234@protonmail.com</span>
                 </div>
             </div>
-            <span class="fixed bottom-2 left-1/2 -translate-x-1/2 opacity-30">Z❤️</span>
         </div>
     </div>
 </template>
