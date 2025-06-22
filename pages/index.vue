@@ -108,11 +108,7 @@ const sa = () => {
                 <div class="flex flex-col items-start">
                     <span class="text-xl font-semibold">Emrah Aras</span>
                     <span class="text-gray-400">Self taught web & desktop developer</span>
-                    <div v-if="new Date().getHours() >= 8 && new Date().getHours() <= 17" class="flex flex-row items-center gap-1 text-indigo-400 text-xs">
-                        <i class="fa-solid fa-book"></i>
-                        <span>At Scholl</span>
-                    </div>
-                    <div v-else class="flex flex-row items-center gap-1 text-yellow-600 text-xs">
+                    <div class="flex flex-row items-center gap-1 text-yellow-600 text-xs">
                         <i class="fa-solid fa-moon translate-y-[1px]"></i>
                         <span>Idle</span>
                     </div>
