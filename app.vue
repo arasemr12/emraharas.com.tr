@@ -1,15 +1,23 @@
 <script setup>
 
+const route = useRoute();
+
 useSeoMeta({
   title:"arasemr1234",
   ogTitle:"arasemr1234",
-  description:"arasemr1234 personel website",
-  ogDescription:"arasemr1234 personel website",
+  description:"arasemr1234 personal website",
+  ogDescription:"arasemr1234 personal website",
   ogType:"website",
-  ogUrl:"https://emraharas.com.tr",
+  ogUrl:`https://emraharas.com.tr${route.fullPath}`,
   ogLocale:"en_US",
-  ogLocaleAlternate:["en_GB"],
+  ogLocaleAlternate:["en_GB","tr_TR"],
   author:"arasemr1234",
+});
+
+watch(route,() => {
+  useSeoMeta({
+    ogUrl:`https://emraharas.com.tr${route.fullPath}`
+  });
 });
 
 </script>
