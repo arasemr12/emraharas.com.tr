@@ -5,8 +5,8 @@ const route = useRoute();
 useSeoMeta({
   title:"arasemr1234",
   ogTitle:"arasemr1234",
-  description:"arasemr1234 (Emrah Aras) personal website",
-  ogDescription:"arasemr1234 (Emrah Aras) personal website",
+  description:"Emrah Aras arasemr1234 kişisel web site. Yazılım, teknoloji ve profesyonel çalışmalara dair güncel içerikler.",
+  ogDescription:"Emrah Aras arasemr1234 kişisel web site. Yazılım, teknoloji ve profesyonel çalışmalara dair güncel içerikler.",
   ogType:"website",
   ogUrl:`https://emraharas.com.tr${route.fullPath}`,
   ogLocale:"en_US",
@@ -23,7 +23,7 @@ watch(route,() => {
 </script>
 
 <template>
-  <div class="layout">
+  <div class="layout" translate="no">
     <NuxtRouteAnnouncer />
     <NuxtLayout>
       <NuxtPage/>

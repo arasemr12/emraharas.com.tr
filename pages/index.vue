@@ -72,10 +72,14 @@ onMounted(() => {
     })();
 
     (async() => {
-        let {data} = await axios.get("https://api.lanyard.rest/v1/users/441221465019514881");
-        data = data.data;
-        console.log(data);
-        spotify.value = data?.spotify;
+        try {
+            let {data} = await axios.get("https://api.lanyard.rest/v1/users/441221465019514881");
+            data = data.data;
+            console.log(data);
+            spotify.value = data?.spotify;
+        } catch (error) {
+            
+        }
     })();
 });
 
@@ -93,7 +97,7 @@ const pause = () => {
     audio.value.pause();
 };
 
-const sa = () => {
+const secret = () => {
     //window.location.href = '/sa'
 };
 
@@ -122,7 +126,7 @@ const sa = () => {
             </div>
             <div class="w-full bg-gray-800/70 border-2 py-2 px-4 border-gray-700/70 backdrop-blur-sm rounded flex flex-col">
                 <span class="font-semibold">My Birth Date 🎉</span>
-                <span>07.01.2009</span>
+                <span>{{ birthDate.toLocaleDateString("tr") }}</span>
                 <span>Remaining Time: {{ months }} months {{ days }} days {{ hours }} hours {{ minutes }} minutes and {{ seconds }} seconds</span>
                 <!--<span class="text-xs">{{myAge}} years old</span>-->
             </div>
@@ -165,7 +169,7 @@ const sa = () => {
                 }) }}</span>
                 <span v-if="ip">{{ ip }}</span>
             </div>
-            <span @click="sa" class="z-50 fixed bottom-2 left-1/2 -translate-x-1/2 opacity-30 cursor-pointer">esnek gacı sandım onu balerin ah</span>
+            <span @click="secret" class="z-50 fixed bottom-2 left-1/2 -translate-x-1/2 opacity-30 cursor-pointer">esnek gacı sandım onu balerin ah</span>
         </div>
     </div>
 </template>
