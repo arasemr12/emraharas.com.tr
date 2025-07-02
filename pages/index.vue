@@ -98,7 +98,7 @@ const pause = () => {
 };
 
 const secret = () => {
-    //window.location.href = '/sa'
+    window.location.href = '/signal';
 };
 
 </script>
