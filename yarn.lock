@@ -3518,6 +3518,11 @@ graceful-fs@^4.2.0, graceful-fs@^4.2.11, graceful-fs@^4.2.4, graceful-fs@^4.2.9:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.11.tgz#4183e4e8bf08bb6e05bbb2f7d2e0c8f712ca40e3"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
 
+gsap@^3.13.0:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.13.0.tgz#597d4e019a2bb487785387d91296adebf92db9dd"
+  integrity sha512-QL7MJ2WMjm1PHWsoFrAQH/J8wUeqZvMtHO58qdekHpCfhvhSL4gSiz6vJf5EeMP0LOn3ZCprL2ki/gjED8ghVw==
+
 gzip-size@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/gzip-size/-/gzip-size-7.0.0.tgz#9f9644251f15bc78460fccef4055ae5a5562ac60"
@@ -5398,6 +5403,11 @@ rollup@^4.34.9, rollup@^4.40.0, rollup@^4.44.0:
     "@rollup/rollup-win32-ia32-msvc" "4.44.1"
     "@rollup/rollup-win32-x64-msvc" "4.44.1"
     fsevents "~2.3.2"
+
+rough-notation@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/rough-notation/-/rough-notation-0.5.1.tgz#32abbb16b973fb00fba83ab96b18704e98620e95"
+  integrity sha512-ITHofTzm13cWFVfoGsh/4c/k2Mg8geKgBCwex71UZLnNuw403tCRjYPQ68jSAd37DMbZIePXPjDgY0XdZi9HPw==
 
 run-applescript@^7.0.0:
   version "7.0.0"
