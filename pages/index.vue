@@ -25,12 +25,13 @@ const scaleable = () => {
         //scalable[i].style.transform = 'scale(' + scalableContainerWidth / scalableWidth + ')';
         let currentFontSize = parseFloat(window.getComputedStyle(scalable[i]).fontSize);
 
-        console.log(currentFontSize);
         scalable[i].style["font-size"] = `${currentFontSize*(scalableContainerWidth / scalableWidth)}px`;
         //scalable[i].style["line-height"] = `${currentFontSize*(scalableContainerWidth / scalableWidth)-window.innerHeight/20}px`;
         //scalableContainer.style.height = scalable[i].getBoundingClientRect().height + 'px';
 
-    }
+    };
+
+    requestAnimationFrame(scaleable);
 };
 
 const scroll = () => {
@@ -40,7 +41,7 @@ const scroll = () => {
 onMounted(() => {
     scaleable();
 
-    window.addEventListener("resize",scaleable);
+    //window.addEventListener("resize",scaleable);
 
     const annotation = annotate(text.value, { type: 'highlight' });
     annotation.color = "blue";
