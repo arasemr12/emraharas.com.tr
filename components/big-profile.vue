@@ -27,5 +27,5 @@ watch(animating,() => {
 
 <template>
     <span class="scale-80 hidden"></span>
-    <img ref="img" draggable="false" src="https://cdn.discordapp.com/avatars/441221465019514881/095475859f839898d73dbbaf4ccae4f8.webp?size=256" width="256" :class="`rounded-full opacity-80 hover:opacity-100 cursor-pointer hover:scale-110 active:scale-90 shadow-2xl`" style="transition: 300ms all;" alt=""></img>
+    <img ref="img" draggable="false" src="/profile.webp" width="256" :class="`rounded-full opacity-80 hover:opacity-100 cursor-pointer hover:scale-110 active:scale-90 shadow-2xl`" style="transition: 300ms all;" alt=""></img>
 </template>

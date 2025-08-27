@@ -2,12 +2,15 @@
 
 import { annotate } from 'rough-notation';
 import {gsap} from "gsap";
+import axios from 'axios';
 
 const text = ref(null);
 const main = ref(null);
 const rotate = ref(0);
 const date = ref(Date.now());
 const timer = ref(null);
+
+const spotify = ref();
 
 const scaleable = () => {
     let scalable = document.querySelectorAll('.scale--js');
@@ -24,7 +27,7 @@ const scaleable = () => {
 
         console.log(currentFontSize);
         scalable[i].style["font-size"] = `${currentFontSize*(scalableContainerWidth / scalableWidth)}px`;
-        scalable[i].style["line-height"] = `${currentFontSize*(scalableContainerWidth / scalableWidth)-window.innerHeight/20}px`;
+        //scalable[i].style["line-height"] = `${currentFontSize*(scalableContainerWidth / scalableWidth)-window.innerHeight/20}px`;
         //scalableContainer.style.height = scalable[i].getBoundingClientRect().height + 'px';
 
     }
@@ -49,8 +52,21 @@ onMounted(() => {
         date.value = Date.now();
     }, 100);
 
+    refreshSpotify();
+
     //annotation.show();
 });
+
+const refreshSpotify = async() => {
+    try {
+        let {data} = await axios.get("https://api.lanyard.rest/v1/users/441221465019514881");
+        data = data.data;
+        console.log(data);
+        spotify.value = data?.spotify;
+    } catch (error) {
+        
+    }
+};
 
 onUnmounted(() => {
     clearInterval(timer.value);
@@ -82,7 +98,7 @@ const move = (e) => {
         <div class="w-full h-screen flex flex-col items-center pt-48 relative">
             <Glow/>
             <div class="z-10 absolute top-44 flex flex-col items-center w-full">
-                <span class="scale--js bebas-neue font-bold whitespace-nowrap">Emrah "arasemr1234" Aras</span>
+                <span class="scale--js bebas-neue font-bold whitespace-nowrap leading-12 lg:leading-20 xl:leading-26">Emrah "arasemr1234" Aras</span>
                 <div class="flex items-end justify-end w-full pr-[30px]">
                     <span ref="text">Self taught web & desktop developer</span>
                 </div>
@@ -98,12 +114,20 @@ const move = (e) => {
                 </div>
             </div>
         </div>
-        <div class="w-full h-screen flex flex-col items-center">
+        <div class="w-full h-screen flex flex-col items-center pt-32">
             <span>hi</span>
+            <div v-if="false" class="flex flex-row items-center gap-3 text-3xl font-thin">
+                <span>I'am</span>
+                <div class="relative h-[36px] w-[36px] overflow-hidden">
+                    <span class="absolute -top-2">17</span>
+                    <span class="absolute -bottom-5">16</span>
+                </div>
+                <span>years old. My birth date is: 07.01.2009</span>
+            </div>
         </div>
         <div class="w-full fixed bottom-2 left-2 flex flex-row items-center">
             <span class="opacity-50">{{ new Date(date).toLocaleDateString("tr",{hour:"numeric",minute:"numeric",second:"numeric"}) }}</span>
         </div>
-        <SpotifyBox/>
+        <SpotifyBox v-if="spotify" :spotify="spotify" :refreshSpotify="refreshSpotify"/>
     </div>
 </template>
