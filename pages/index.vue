@@ -169,7 +169,7 @@ const secret = () => {
                 }) }}</span>
                 <span v-if="ip">{{ ip }}</span>
             </div>
-            <span @click="secret" class="z-50 fixed bottom-2 left-1/2 -translate-x-1/2 opacity-30 cursor-pointer">esnek gacı sandım onu balerin ah</span>
+            <!--<span @click="secret" class="z-50 fixed bottom-2 left-1/2 -translate-x-1/2 opacity-30 cursor-pointer">esnek gacı sandım onu balerin ah</span>-->
         </div>
     </div>
 </template>
