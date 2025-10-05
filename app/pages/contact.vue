@@ -35,7 +35,7 @@ const submit = async() => {
             }
         });
 
-        console.log(data);
+        if(!data?.success) throw Error(data?.message || "Error!");
         alert("sent");
 
     } catch (error) {
