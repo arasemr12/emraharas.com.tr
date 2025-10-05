@@ -2,19 +2,47 @@
 
 const minSectionHeight = useState("minSectionHeight");
 
-const al = () => {
-    alert("form not active right now. send an email");
-};
+const widgetId = ref();
+const token = ref();
 
 onMounted(() => {
-    console.log(turnstile);
-    turnstile.render("#turnstile-container",{
+    widgetId.value = turnstile.render("#turnstile-container",{
         sitekey: "0x4AAAAAAB48WLX3o4eScfEc",
-        callback: function (token) {
-            console.log("Success:", token);
+        callback: (t) => {
+            token.value = t;
+        },
+        "expired-callback": () => {
+            console.log("expire");
+            token.value = null;
         },
     });
 });
+
+const email = ref();
+const text = ref();
+
+const submit = async() => {
+    try {
+        const isExpired = turnstile.isExpired(widgetId.value);
+        if(isExpired) return turnstile.reset(widgetId.value);
+
+        let data = await $fetch('/api/contact',{
+            method:"POST",
+            body:{
+                email:email.value,
+                text:text.value,
+                turnstile:token.value
+            }
+        });
+
+        console.log(data);
+        alert("sent");
+
+    } catch (error) {
+        console.log(error);
+        alert(error.message);
+    }
+};
 
 </script>
 
@@ -29,20 +57,20 @@ onMounted(() => {
                 </div>
             </div>
             <div class="w-full bg-gray-300/70 border-2 py-2 px-4 border-gray-400/70 backdrop-blur-sm rounded flex flex-row items-center justify-between">
-                <form @submit.prevent class="flex flex-col items-start gap-3">
+                <form @submit.prevent="submit" class="flex flex-col items-start gap-3">
                     <span class="text-xl font-semibold">Contact Form</span>
                     <div class="flex flex-col items-start">
                         <label for="email">E-Mail</label>
-                        <input type="email" placeholder="E-Mail" id="email">
+                        <input v-model="email" type="email" placeholder="E-Mail" id="email">
                     </div>
                     <div class="flex flex-col items-start">
                         <label for="text">Text</label>
-                        <textarea id="text" placeholder="Text"></textarea>
+                        <textarea v-model="text" id="text" placeholder="Text"></textarea>
                     </div>
                     <div>
                         <div id="turnstile-container"></div>
                     </div>
-                    <button class="indigobtn disabled" @click="al">Submit</button>
+                    <button class="indigobtn" type="submit" :disabled="!email || !text || !token">Submit</button>
                 </form>
             </div>
         </div>
