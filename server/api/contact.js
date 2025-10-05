@@ -27,9 +27,16 @@ export default defineEventHandler(async(event) => {
             _id: new ObjectId(),
             email,
             text,
+            createdAt: new Date(),
         });
 
         await client.close();
+
+        await axios.post(`https://api.telegram.org/bot${process.env.TELEGRAM_TOKEN}/sendMessage`,{
+            chat_id:process.env.TELEGRAM_CHANNEL_ID,
+            text:"New contact form!",
+            parse_mode:"HTML"
+        });
 
         return {success:true};
     } catch (error) {
