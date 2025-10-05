@@ -20,6 +20,12 @@ export default defineNuxtConfig({
           referrerpolicy:"no-referrer"
         },
       ],
+      script:[
+        {
+          src:"https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
+          defer:true,
+        }
+      ]
     }
   }
 })
