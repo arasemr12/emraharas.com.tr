@@ -18,7 +18,41 @@
     }
 
     .indigobtn{
-        @apply bg-indigo-600 hover:bg-indigo-800 duration-300 cursor-pointer py-2 px-4 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed;
+        @apply relative bg-indigo-600 hover:bg-indigo-800 duration-300 cursor-pointer py-2 px-4 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed;
+        /*disabled:opacity-50 disabled:cursor-not-allowed*/
+    }
+
+    .indigobtn.loading{
+        @apply pl-8;
+    }
+
+    .indigobtn::before{
+        content: "";
+        width: 1px;
+        height: 1px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+        display: block;
+        animation: spinloading 1s linear infinite;
+        transform-origin: center;
+        opacity: 0;
+        @apply duration-300 border-2 border-gray-400 border-t-gray-200 rounded-full left-2;
+    }
+
+    .indigobtn.loading::before{
+        width: 18px;
+        height: 18px;
+        opacity: 100%;
+    }
+
+    @keyframes spinloading {
+        0% {
+            transform: translateY(-50%) rotate(0deg);
+        }
+        100% {
+            transform: translateY(-50%) rotate(360deg);
+        }
     }
 
     .indigobtn.disabled{

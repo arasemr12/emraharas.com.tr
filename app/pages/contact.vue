@@ -20,8 +20,11 @@ onMounted(() => {
 
 const email = ref();
 const text = ref();
+const loading = ref(false);
 
 const submit = async() => {
+    loading.value = true;
+
     try {
         const isExpired = turnstile.isExpired(widgetId.value);
         if(isExpired) return turnstile.reset(widgetId.value);
@@ -36,9 +39,11 @@ const submit = async() => {
         });
 
         if(!data?.success) throw Error(data?.message || "Error!");
-        alert("sent");
+        loading.value = false;
 
+        alert("sent");
     } catch (error) {
+        loading.value = false;
         console.log(error);
         alert(error.message);
     }
@@ -70,7 +75,7 @@ const submit = async() => {
                     <div>
                         <div id="turnstile-container"></div>
                     </div>
-                    <button class="indigobtn" type="submit" :disabled="!email || !text || !token">Submit</button>
+                    <button :class="`indigobtn ${loading ? 'loading' : ''}`" type="submit" :disabled="!email || !text || !token || loading">Submit</button>
                 </form>
             </div>
         </div>
