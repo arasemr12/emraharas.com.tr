@@ -1,4 +1,5 @@
 <script setup>
+import Swal from "sweetalert2";
 
 const minSectionHeight = useState("minSectionHeight");
 
@@ -12,7 +13,6 @@ onMounted(() => {
             token.value = t;
         },
         "expired-callback": () => {
-            console.log("expire");
             token.value = null;
         },
     });
@@ -41,11 +41,29 @@ const submit = async() => {
         if(!data?.success) throw Error(data?.message || "Error!");
         loading.value = false;
 
-        alert("sent");
+        Swal.fire({
+            title:"Contact form sent!",
+            toast:true,
+            position:"top-right",
+            icon:"success",
+            showConfirmButton:false,
+            timer:3000,
+            timerProgressBar:true,
+        });
     } catch (error) {
         loading.value = false;
-        console.log(error);
-        alert(error.message);
+
+        Swal.fire({
+            title:error?.message || "Error!",
+            toast:true,
+            position:"top-right",
+            icon:"error",
+            showConfirmButton:false,
+            timer:3000,
+            timerProgressBar:true,
+        });
+
+        turnstile.reset(widgetId.value);
     }
 };
 
