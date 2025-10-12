@@ -7,7 +7,7 @@ const client = new MongoClient(url);
 export default defineEventHandler(async(event) => {
     try {
         let {email,text,turnstile} = await readBody(event);
-        if(!email || !text || !turnstile || email.length > 256 || text.length > 2048) return {success:false,message:"Too long or missing body!"};
+        if(!email || !text || !turnstile || email.length > 256 || text.length > 10240) return {success:false,message:"Too long or missing body!"};
 
         let d = await axios.post("https://challenges.cloudflare.com/turnstile/v0/siteverify",{
             secret:process.env.TURNSTILE_SECRET_KEY,
