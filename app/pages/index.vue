@@ -1,5 +1,5 @@
 <script setup>
-
+const { locales, setLocale } = useI18n();
 </script>
 
 <template>
@@ -10,12 +10,12 @@
                 <span class="mb-8">Self taught web & desktop developer</span>
                 <div class="flex flex-row items-center gap-10 mb-8">
                     <div class="flex flex-col items-start">
-                        <span class="text-2xl font-semibold">Right Now</span>
+                        <span class="text-2xl font-semibold">{{ $t("index.rightnow") }}</span>
                         <span>Freelance</span>
                     </div>
                     <div class="flex flex-col items-start">
-                        <span class="text-2xl font-semibold">Location</span>
-                        <span>Turkiye and Remote</span>
+                        <span class="text-2xl font-semibold">{{ $t("index.location.title") }}</span>
+                        <span>{{ $t("index.location.value") }}</span>
                     </div>
                 </div>
                 <div class="mb-8 flex flex-row items-center gap-5">
@@ -35,17 +35,17 @@
                         <i class="fa-brands fa-x-twitter fa-2x"></i>
                     </a>
                 </div>
-                <nuxt-link class="py-2 px-4 border-2 border-gray-900 hover:bg-gray-900 hover:text-white duration-300 rounded" to="/contact">Contact Me</nuxt-link>
+                <nuxt-link class="py-2 px-4 border-2 border-gray-900 hover:bg-gray-900 hover:text-white duration-300 rounded" to="/contact">{{ $t("contactme") }}</nuxt-link>
             </div>
         </div>
         <div class="w-full bg-green-200/70 flex items-center justify-center py-12">
             <div class="lg:w-2/3 w-full h-full flex lg:flex-row flex-col items-center justify-between gap-5 lg:gap-0 p-4">
-                <span class="text-8xl font-bold w-1/2">Shall We?</span>
+                <span class="text-7xl font-bold w-1/2">{{ $t("swallwe.title") }}</span>
                 <div class="flex flex-col items-start gap-5">
-                    <span>Passionate about building fast, accessible, and modern apps - from web to desktop. Want to create something great together?</span>
+                    <span>{{ $t("swallwe.text") }}</span>
                     <nuxt-link to="/contact" class="py-2 px-4 border-2 border-gray-900 hover:bg-gray-900 hover:text-white duration-300 rounded flex flex-row items-center gap-3">
                         <i class="fa-solid fa-envelope"></i>
-                        <span>Email Me</span>
+                        <span>{{ $t("emailme") }}</span>
                     </nuxt-link>
                 </div>
             </div>

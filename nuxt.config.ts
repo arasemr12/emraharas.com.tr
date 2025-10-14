@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
+  modules:["@nuxtjs/i18n"],
   vite:{
     plugins:[
       tailwindcss(),
@@ -26,6 +27,25 @@ export default defineNuxtConfig({
           defer:true,
         }
       ]
+    }
+  },
+  i18n:{
+    strategy:"no_prefix",
+    defaultLocale:"en",
+    locales:[
+      {
+        code:"en",
+        name:"English",
+        file:"en.json"
+      },
+      {
+        code:"tr",
+        name:"Türkçe",
+        file:"tr.json"
+      },
+    ],
+    bundle:{
+      optimizeTranslationDirective:false,
     }
   }
 })

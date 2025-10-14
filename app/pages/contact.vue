@@ -75,25 +75,25 @@ const submit = async() => {
         <div class="lg:w-2/3 w-full h-auto flex flex-col z-20 pt-32 gap-3">
             <div class="w-full bg-gray-300/70 border-2 py-2 px-4 border-gray-400/70 backdrop-blur-sm rounded flex flex-row items-center justify-between">
                 <div class="flex flex-col items-start">
-                    <span class="text-xl font-semibold mb-2">Contact Me</span>
+                    <span class="text-xl font-semibold mb-2">{{ $t("contact.contactme") }}</span>
                     <span>Email: arasemr1234@protonmail.com</span>
                 </div>
             </div>
             <div class="w-full bg-gray-300/70 border-2 py-2 px-4 border-gray-400/70 backdrop-blur-sm rounded flex flex-row items-center justify-between">
                 <form @submit.prevent="submit" class="flex flex-col items-start gap-3">
-                    <span class="text-xl font-semibold">Contact Form</span>
+                    <span class="text-xl font-semibold">{{ $t("contact.contactform") }}</span>
                     <div class="flex flex-col items-start">
                         <label for="email">E-Mail</label>
                         <input v-model="email" type="email" placeholder="E-Mail" id="email">
                     </div>
                     <div class="flex flex-col items-start">
-                        <label for="text">Text</label>
-                        <textarea v-model="text" id="text" placeholder="Text"></textarea>
+                        <label for="text">{{ $t("contact.text") }}</label>
+                        <textarea v-model="text" id="text" :placeholder="$t('contact.text')"></textarea>
                     </div>
                     <div>
                         <div id="turnstile-container"></div>
                     </div>
-                    <button :class="`indigobtn ${loading ? 'loading' : ''}`" type="submit" :disabled="!email || !text || !token || loading">Submit</button>
+                    <button :class="`indigobtn ${loading ? 'loading' : ''}`" type="submit" :disabled="!email || !text || !token || loading">{{ $t("contact.submit") }}</button>
                 </form>
             </div>
         </div>

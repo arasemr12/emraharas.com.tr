@@ -1,0 +1,22 @@
+<script setup>
+
+const active = ref(false);
+
+defineExpose({active});
+
+const { locales, setLocale, locale } = useI18n();
+
+</script>
+
+<template>
+    <div class="relative flex flex-col items-center gap-0 ml-4">
+        <div @click="active = !active" class="flex flex-row items-center gap-2 cursor-pointer">
+            <img draggable="false" :src="`https://flagsapi.com/${getFlagCode(locale)}/flat/32.png`" alt="">
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <div :class="`w-[150px] h-[200px] bg-gray-300/70 rounded backdrop-blur-sm absolute left-0 flex flex-col overflow-auto items-start duration-300 ${active ? 'opacity-100 visible top-[140%]' : 'opacity-0 invisible top-[100%]'}`">
+            <!--left-1/2 -translate-x-1/2-->
+            <slot/>
+        </div>
+    </div>
+</template>

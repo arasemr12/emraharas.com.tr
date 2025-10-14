@@ -15,6 +15,8 @@ onMounted(() => {
     calcMinSectionHeight();
 });
 
+const { locales, setLocale } = useI18n();
+
 </script>
 
 <template>
@@ -25,9 +27,9 @@ onMounted(() => {
         </div>
         <div ref="footer" class="w-full py-4 px-4 bg-gray-900 text-white flex flex-col items-center gap-5">
             <div class="lg:w-2/3 w-full flex flex-row items-center gap-5 text-xl">
-                <nuxt-link to="/blog">Blog</nuxt-link>
-                <nuxt-link to="/contact">Contact</nuxt-link>
-                <nuxt-link to="/privacy-policy">Privacy Policy</nuxt-link>
+                <nuxt-link to="/blog">{{ $t("footer.blog") }}</nuxt-link>
+                <nuxt-link to="/contact">{{ $t("footer.contact") }}</nuxt-link>
+                <nuxt-link to="/privacy-policy">{{ $t("footer.privacypolicy") }}</nuxt-link>
             </div>
         </div>
     </div>
