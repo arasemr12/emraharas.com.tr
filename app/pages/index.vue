@@ -40,7 +40,7 @@ const { locales, setLocale } = useI18n();
         </div>
         <div class="w-full bg-green-200/70 flex items-center justify-center py-12">
             <div class="lg:w-2/3 w-full h-full flex lg:flex-row flex-col items-center justify-between gap-5 lg:gap-0 p-4">
-                <span class="text-7xl font-bold w-1/2">{{ $t("swallwe.title") }}</span>
+                <span class="text-7xl font-bold lg:w-1/2">{{ $t("swallwe.title") }}</span>
                 <div class="flex flex-col items-start gap-5">
                     <span>{{ $t("swallwe.text") }}</span>
                     <nuxt-link to="/contact" class="py-2 px-4 border-2 border-gray-900 hover:bg-gray-900 hover:text-white duration-300 rounded flex flex-row items-center gap-3">

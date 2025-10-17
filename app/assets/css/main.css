@@ -22,6 +22,14 @@
         /*disabled:opacity-50 disabled:cursor-not-allowed*/
     }
 
+    .mobilenav a{
+        @apply duration-300 cursor-pointer py-2 px-4 text-white w-full border-b-2 border-gray-800;
+    }
+
+    .mobilenav a.router-link-exact-active{
+        @apply bg-gray-800;
+    }
+
     .indigobtn.loading{
         @apply pl-8;
     }
@@ -91,4 +99,8 @@
 input,
 textarea{
     @apply py-2 px-4 bg-gray-300 rounded border-2 border-gray-400;
+}
+
+.mobilenav .langdslot{
+    @apply bg-gray-700/70 backdrop-blur-sm border-0;
 }
