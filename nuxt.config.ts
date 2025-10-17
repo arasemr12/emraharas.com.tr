@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
-  modules:["@nuxtjs/i18n"],
+  modules:["@nuxtjs/i18n", "@nuxtjs/sitemap"],
   vite:{
     plugins:[
       tailwindcss(),
@@ -47,5 +47,18 @@ export default defineNuxtConfig({
     bundle:{
       optimizeTranslationDirective:false,
     }
+  },
+  sitemap:{
+    enabled:true,
+    defaults:{
+      lastmod: new Date().toISOString().split("T")[0],
+      priority: 0.5,
+      changefreq: 'daily'
+    },
+  },
+  site:{
+    enabled:true,
+    url:"https://emraharas.com.tr",
+    name:"Emrah Aras - arasemr1234",
   }
 })

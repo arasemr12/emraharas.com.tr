@@ -3,8 +3,8 @@
 const route = useRoute();
 
 useSeoMeta({
-  title:"arasemr1234",
-  ogTitle:"arasemr1234",
+  title:"Emrah Aras - arasemr1234",
+  ogTitle:"Emrah Aras - arasemr1234",
   description:"Emrah Aras arasemr1234 kişisel web site. Yazılım, teknoloji ve profesyonel çalışmalara dair güncel içerikler.",
   ogDescription:"Emrah Aras arasemr1234 kişisel web site. Yazılım, teknoloji ve profesyonel çalışmalara dair güncel içerikler.",
   ogType:"website",
