@@ -30,18 +30,21 @@ export default defineNuxtConfig({
     }
   },
   i18n:{
+    baseUrl:"https://emraharas.com.tr",
     strategy:"no_prefix",
     defaultLocale:"en",
     locales:[
       {
         code:"en",
         name:"English",
-        file:"en.json"
+        file:"en.json",
+        language:"en_GB"
       },
       {
         code:"tr",
         name:"Türkçe",
-        file:"tr.json"
+        file:"tr.json",
+        language:"tr_TR"
       },
     ],
     bundle:{
@@ -60,5 +63,10 @@ export default defineNuxtConfig({
     enabled:true,
     url:"https://emraharas.com.tr",
     name:"Emrah Aras - arasemr1234",
+  },
+  runtimeConfig:{
+    public:{
+      turnstileSiteKey:"0x4AAAAAAB48WLX3o4eScfEc"
+    }
   }
 })

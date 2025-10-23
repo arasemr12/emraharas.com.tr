@@ -17,12 +17,14 @@ onMounted(() => {
 
 const { locales, setLocale } = useI18n();
 
+const darkMode = useCookie("darkMode");
+
 </script>
 
 <template>
-    <div class="layout dark">
+    <div :class="`layout ${darkMode ? 'dark' : ''}`">
         <Navbar v-if="!route.fullPath.includes('signal')"/>
-        <div class="w-full grid" :style="`min-height: ${minSectionHeight || 100}${minSectionHeight ? 'px' : 'vh'};`">
+        <div class="w-full grid bg-gray-50 dark:bg-gray-900" :style="`min-height: ${minSectionHeight || 100}${minSectionHeight ? 'px' : 'vh'};`">
             <slot/>
         </div>
         <div ref="footer" class="w-full py-4 px-4 bg-gray-900 text-white flex flex-col items-center gap-5">

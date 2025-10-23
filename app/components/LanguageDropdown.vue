@@ -26,7 +26,7 @@ onMounted(() => {
             <img draggable="false" :src="`https://flagsapi.com/${getFlagCode(locale)}/flat/32.png`" alt="">
             <i class="fa-solid fa-caret-down"></i>
         </div>
-        <div :class="`w-[150px] h-[200px] bg-gray-300/70 rounded backdrop-blur-sm absolute left-0 flex flex-col overflow-auto items-start duration-300 langdslot ${active ? 'opacity-100 visible top-[140%]' : 'opacity-0 invisible top-[100%]'}`">
+        <div :class="`w-[150px] h-[200px] bg-gray-300/70 dark:bg-gray-800/70 border-2 border-gray-400/70 dark:border-gray-700/70 rounded backdrop-blur-sm absolute left-0 flex flex-col overflow-auto items-start duration-300 langdslot ${active ? 'opacity-100 visible top-[140%]' : 'opacity-0 invisible top-[100%]'}`">
             <!--left-1/2 -translate-x-1/2-->
             <slot/>
         </div>

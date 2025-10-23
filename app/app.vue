@@ -1,5 +1,9 @@
 <script setup>
 
+const { locales, setLocale, localeProperties } = useI18n();
+
+const i18nHead = useLocaleHead();
+
 const route = useRoute();
 
 useSeoMeta({
@@ -9,10 +13,16 @@ useSeoMeta({
   ogDescription:"Emrah Aras arasemr1234 kişisel web site. Yazılım, teknoloji ve profesyonel çalışmalara dair güncel içerikler.",
   ogType:"website",
   ogUrl:`https://emraharas.com.tr${route.fullPath}`,
-  ogLocale:"en_US",
-  ogLocaleAlternate:["en_GB","tr_TR"],
   author:"arasemr1234",
 });
+
+useHead(() => ({
+  htmlAttrs:{
+    lang:i18nHead.value.htmlAttrs.lang
+  },
+  meta: [...(i18nHead.value.meta || [])],
+  link: [...(i18nHead.value.link) || []]
+}));
 
 watch(route,() => {
   useSeoMeta({

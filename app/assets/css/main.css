@@ -7,14 +7,14 @@
 
 @layer components{
     *{
-        @apply border-0 outline-0 box-border;
+        @apply border-0 outline-0 box-border dark:text-white duration-300;
     }
 
     html,
     body,
     #__nuxt,
     .layout{
-        @apply w-full h-full bg-gray-50;
+        @apply w-full h-full bg-gray-50 dark:bg-gray-900;
     }
 
     .indigobtn{
@@ -78,6 +78,15 @@
     .link{
         @apply text-blue-600 underline cursor-pointer;
     }
+
+    .inlinebtn{
+        @apply py-2 px-4 border-2 border-gray-900 dark:border-white hover:bg-gray-900 dark:hover:bg-white hover:text-white dark:hover:text-black duration-300 rounded;
+    }
+
+    .inlinebtn:hover span,
+    .inlinebtn:hover i{
+        @apply text-black duration-300;
+    }
 }
 
 .dancing-script{
@@ -98,9 +107,9 @@
 
 input,
 textarea{
-    @apply py-2 px-4 bg-gray-300 rounded border-2 border-gray-400;
+    @apply py-2 px-4 bg-gray-300 dark:bg-gray-700 rounded border-2 border-gray-400 dark:border-gray-600;
 }
 
 .mobilenav .langdslot{
-    @apply bg-gray-700/70 backdrop-blur-sm border-0;
+    @apply bg-gray-700/70 dark:bg-gray-800/70 backdrop-blur-sm border-gray-600/70 dark:border-gray-700/70;
 }

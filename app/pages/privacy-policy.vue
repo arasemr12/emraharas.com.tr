@@ -66,7 +66,7 @@ watch(locale,(val) => {
 <template>
     <div class="h-auto w-full flex items-center justify-center overflow-auto">
         <div :style="`min-height: ${minSectionHeight || 100}${minSectionHeight ? 'px' : 'vh'};`" class="lg:w-2/3 w-full h-auto flex flex-col items-start z-20 pt-32 gap-3">
-            <article class="prose mb-32" v-html="html"></article>
+            <article class="prose dark:prose-invert mb-32" v-html="html"></article>
         </div>
     </div>
 </template>
