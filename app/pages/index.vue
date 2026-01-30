@@ -18,7 +18,7 @@ const { locales, setLocale } = useI18n();
                         <span>{{ $t("index.location.value") }}</span>
                     </div>
                 </div>
-                <div class="mb-8 flex flex-row items-center gap-5">
+                <div class="mb-8 flex flex-row items-center gap-5 socials">
                     <a href="https://github.com/arasemr12" target="_blank" class="opacity-70 hover:opacity-100 hover:-translate-y-1 duration-300">
                         <i class="fa-brands fa-github fa-2x"></i>
                     </a>
@@ -43,7 +43,7 @@ const { locales, setLocale } = useI18n();
                 <span class="text-7xl font-bold lg:w-1/2">{{ $t("swallwe.title") }}</span>
                 <div class="flex flex-col items-start gap-5">
                     <span>{{ $t("swallwe.text") }}</span>
-                    <nuxt-link to="/contact" class="inlinebtn flex flex-row items-center gap-3">
+                    <nuxt-link to="/contact" class="group inlinebtn flex flex-row items-center gap-3">
                         <i class="fa-solid fa-envelope"></i>
                         <span>{{ $t("emailme") }}</span>
                     </nuxt-link>

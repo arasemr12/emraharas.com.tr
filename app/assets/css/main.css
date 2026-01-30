@@ -6,6 +6,10 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer components{
+    ::selection{
+        @apply bg-indigo-600/70 backdrop-blur-sm text-white;
+    }
+
     *{
         @apply border-0 outline-0 box-border dark:text-white duration-300;
     }
@@ -83,9 +87,8 @@
         @apply py-2 px-4 border-2 border-gray-900 dark:border-white hover:bg-gray-900 dark:hover:bg-white hover:text-white dark:hover:text-black duration-300 rounded;
     }
 
-    .inlinebtn:hover span,
-    .inlinebtn:hover i{
-        @apply text-black duration-300;
+    .inlinebtn span, .inlinebtn i{
+        @apply group-hover:text-white dark:group-hover:text-black;
     }
 }
 

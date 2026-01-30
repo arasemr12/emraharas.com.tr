@@ -785,6 +785,18 @@
   resolved "https://registry.yarnpkg.com/@kwsites/promise-deferred/-/promise-deferred-1.1.1.tgz#8ace5259254426ccef57f3175bc64ed7095ed919"
   integrity sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==
 
+"@lottiefiles/dotlottie-vue@^0.10.7":
+  version "0.10.7"
+  resolved "https://registry.yarnpkg.com/@lottiefiles/dotlottie-vue/-/dotlottie-vue-0.10.7.tgz#387ca231c9bd3266b4796efca79bc4fd0e643772"
+  integrity sha512-ikG4/cwzPWiWAqmyKPmvqDor03vaGaLg42XNmANSs9oHExOCo9JcYiG2ik/kJj3FONeFQP45JaF/Pbb0MKGkwg==
+  dependencies:
+    "@lottiefiles/dotlottie-web" "0.56.0"
+
+"@lottiefiles/dotlottie-web@0.56.0":
+  version "0.56.0"
+  resolved "https://registry.yarnpkg.com/@lottiefiles/dotlottie-web/-/dotlottie-web-0.56.0.tgz#30805035885d8ce43927c7007962736002b2e442"
+  integrity sha512-bWHRIGzjZs3Hjkz0JRsCMX2ya9a1tGU4atdrlfM3UoN0iamsDE64kSCMfGuchCwGAxg0xEh84CkF+SVV1NU9ow==
+
 "@mapbox/node-pre-gyp@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@mapbox/node-pre-gyp/-/node-pre-gyp-2.0.0.tgz#16d1d9049c0218820da81a12ae084e7fe67790d1"
