@@ -1,0 +1,34 @@
+{
+    "*": {
+        "index": {
+            "rightnow": "Güncel",
+            "location": {
+                "title": "Lokasyon",
+                "value": "Türkiye ve Uzaktan"
+            }
+        },
+        "contact": {
+            "contactme": "İletişim",
+            "contactform": "İletişim Formu",
+            "submit": "Gönder",
+            "text": "İçerik"
+        },
+        "swallwe": {
+            "title": "Yapalım mı?",
+            "text": "Web'den masaüstüne kadar hızlı, erişilebilir ve modern uygulamalar geliştirme konusunda tutkulu musunuz? Birlikte harika bir şey yaratmak ister misiniz?"
+        },
+        "navbar": {
+            "home": "Ana Sayfa",
+            "contactme": "İletişim",
+            "projects": "Projeler",
+            "blog": "Blog"
+        },
+        "footer": {
+            "blog": "Blog",
+            "contact": "İletişim",
+            "privacypolicy": "Gizlilik Politikası"
+        },
+        "contactme": "Bana Ulaş",
+        "emailme": "Bana Ulaş"
+    }
+}

@@ -1,32 +1,30 @@
 {
-  "name": "nuxt-app",
+  "name": "emraharas.com.tr-next",
+  "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
-  "devDependencies": {
-    "@lottiefiles/dotlottie-vue": "^0.10.7",
-    "@nuxtjs/i18n": "9.5.6",
-    "@nuxtjs/sitemap": "7.4.7",
+  "dependencies": {
+    "@headlessui/react": "^2.2.10",
+    "@supabase/supabase-js": "^2.108.1",
     "@tailwindcss/typography": "^0.5.19",
-    "@tailwindcss/vite": "^4.0.14",
-    "axios": "^1.8.3",
-    "date-fns": "^4.1.0",
-    "gsap": "^3.13.0",
-    "marked": "^16.3.0",
-    "moment": "^2.30.1",
-    "mongodb": "^6.20.0",
-    "nuxt": "^4.1.2",
-    "rough-notation": "^0.5.1",
-    "sweetalert2": "^11.25.0",
-    "tailwindcss": "^4.0.14",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "marked": "^18.0.5",
+    "next": "16.2.6",
+    "next-intl": "^4.12.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-icons": "^5.6.0",
+    "sonner": "^2.0.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }

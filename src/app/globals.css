@@ -1,0 +1,151 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+    .no-transition-on-load * {
+        transition: none !important;
+    }
+
+    ::selection {
+        @apply bg-indigo-600/70 backdrop-blur-sm text-white;
+    }
+
+    * {
+        @apply border-0 outline-0 box-border dark:text-white transition-colors duration-300;
+    }
+
+    html,
+    body,
+    #__nuxt,
+    .layout {
+        @apply w-full h-full bg-gray-50 dark:bg-gray-900;
+    }
+
+    .indigobtn {
+        @apply relative bg-indigo-600 hover:bg-indigo-800 duration-300 cursor-pointer py-2 px-4 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed;
+        /*disabled:opacity-50 disabled:cursor-not-allowed*/
+    }
+
+    .mobilenav a {
+        @apply duration-300 cursor-pointer py-2 px-4 text-white w-full border-b-2 border-gray-800;
+    }
+
+    .mobilenav a.router-link-exact-active {
+        @apply bg-gray-800;
+    }
+
+    .indigobtn.loading {
+        @apply pl-8;
+    }
+
+    .indigobtn::before {
+        content: "";
+        width: 1px;
+        height: 1px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+        display: block;
+        animation: spinloading 1s linear infinite;
+        transform-origin: center;
+        opacity: 0;
+        @apply duration-300 border-2 border-gray-400 border-t-gray-200 rounded-full left-2;
+    }
+
+    .indigobtn.loading::before {
+        width: 18px;
+        height: 18px;
+        opacity: 100%;
+    }
+
+    @keyframes spinloading {
+        0% {
+            transform: translateY(-50%) rotate(0deg);
+        }
+
+        100% {
+            transform: translateY(-50%) rotate(360deg);
+        }
+    }
+
+    .indigobtn.disabled {
+        @apply opacity-50 cursor-not-allowed;
+    }
+
+    .navbtn {
+        @apply py-1 px-4 bg-indigo-600 hover:bg-indigo-800 text-white duration-300 rounded;
+    }
+
+    .socialmediaicon {
+        @apply text-gray-400 hover:text-white hover:-translate-y-[1px] duration-300;
+    }
+
+    .link {
+        @apply text-blue-600 underline cursor-pointer;
+    }
+
+    .inlinebtn {
+        @apply py-2 px-4 border-2 border-gray-900 dark:border-white hover:bg-gray-900 dark:hover:bg-white hover:text-white dark:hover:text-black duration-300 rounded;
+    }
+
+    .inlinebtn svg {
+        @apply group-hover:fill-white dark:group-hover:fill-black;
+    }
+
+    .inlinebtn span {
+        @apply group-hover:text-white dark:group-hover:text-black;
+    }
+
+    @keyframes slideInStop {
+        0% {
+            transform: translateY(-120px);
+            opacity: 0;
+        }
+
+        60% {
+            transform: translateY(8px);
+            opacity: 1;
+        }
+
+        80% {
+            transform: translateY(-4px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .dropdown {
+        animation: slideInStop 300ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        opacity: 1;
+        /* başlangıçta gizli */
+    }
+}
+
+.dancing-script {
+    font-family: "Dancing Script", cursive;
+}
+
+.bebas-neue {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+::-webkit-scrollbar {
+    @apply bg-gray-950 rounded-full w-2;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-gray-800 hover:bg-gray-700 rounded-full;
+}
+
+input,
+textarea {
+    @apply py-2 px-4 bg-gray-300 dark:bg-gray-700 rounded border-2 border-gray-400 dark:border-gray-600;
+}
+
+.mobilenav .langdslot {
+    @apply bg-gray-700/70 dark:bg-gray-800/70 backdrop-blur-sm border-gray-600/70 dark:border-gray-700/70;
+}
