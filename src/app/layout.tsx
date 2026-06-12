@@ -25,7 +25,11 @@ export default async function RootLayout({
       className={`h-full w-full antialiased no-transition-on-load`}
     >
       <body className={`w-full h-full ${theme}`}>
-        <Toaster/>
+        <Toaster toastOptions={{
+          classNames:{
+            toast:"toast"
+          }
+        }}/>
         <NextIntlClientProvider>
           <div className="w-full h-screen flex flex-col">
             <Navbar />

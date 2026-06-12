@@ -23,7 +23,7 @@ export default function NavbarInner({ currentTheme }: { currentTheme: string }) 
     useEffect(() => {
         document.querySelector("html")?.classList.remove("no-transition-on-load");
 
-        document.addEventListener("click", (e:MouseEvent<HTMLButtonElement>|{target:HTMLDivElement}) => {
+        document.addEventListener("click", (e: MouseEvent<HTMLButtonElement> | { target: HTMLDivElement }) => {
             if (!e.target || e.target.closest(`.mobilenav`) || e.target.parentElement.classList.contains("mobilebtn") || e.target.closest(`.mobilebtn`)) return;
 
             setNav(false);
@@ -87,7 +87,24 @@ export default function NavbarInner({ currentTheme }: { currentTheme: string }) 
                 <Link href="/projects">Projects</Link>
                 <Link href="/blog">Blog</Link>
                 <div onClick={changeTheme} className="mt-4 ml-4 w-4 h-4 flex items-center justify-center cursor-pointer"><FaMoon className="w-full h-auto" /></div>
-
+                <Popover className="relative mt-4 ml-4 z-200">
+                    {({ open }) => (
+                        <>
+                            <PopoverButton className={'flex flex-row items-center gap-1 cursor-pointer'}>
+                                <img className="w-[32px] h-[32px]" src={locales[locale as LocaleKey].img} alt="" />
+                                <FaAngleDown className={`duration-300 transition-all ${open ? `rotate-180` : 'rotate-0'}`} />
+                            </PopoverButton>
+                            <PopoverPanel anchor="bottom" transition className="flex flex-col items-start z-200 bg-gray-800/70 border-2 border-gray-700/70 shadow py-2 px-4 rounded backdrop-blur-sm transition duration-200 ease-out data-closed:-translate-y-12 data-closed:scale-95 data-closed:opacity-0 gap-3 ml-2 mt-2">
+                                {(Object.keys(locales) as Array<LocaleKey>).map((loc) => (
+                                    <CloseButton as={Button} onClick={() => setLang(loc)} className="flex flex-row items-center gap-3 cursor-pointer" key={loc}>
+                                        <img className="w-[32px] h-[32px]" src={locales[loc].img} alt="" />
+                                        <span>{locales[loc].name}</span>
+                                    </CloseButton>
+                                ))}
+                            </PopoverPanel>
+                        </>
+                    )}
+                </Popover>
             </div>
         </>
     )

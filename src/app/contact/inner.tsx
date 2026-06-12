@@ -18,6 +18,12 @@ export default function ContactInner() {
     const turnstileRef = useRef(null);
 
     useEffect(() => {
+        toast("Form sent!", {
+            position: "top-right",
+            duration: 1500,
+            icon: <FaCheck />
+        });
+
         const isDev = process.env.NODE_ENV === "development";
 
         const check = () => {
@@ -34,7 +40,7 @@ export default function ContactInner() {
         check();
     }, []);
 
-    const handleSubmit:SubmitEventHandler<HTMLFormElement> = async (e) => {
+    const handleSubmit: SubmitEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
 
         if (!email || !text || !token || loading) return;
@@ -62,7 +68,7 @@ export default function ContactInner() {
 
             let msg = "Unknown error!";
 
-            if(error instanceof Error){
+            if (error instanceof Error) {
                 msg = error.message;
             };
 

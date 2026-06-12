@@ -123,6 +123,10 @@
         opacity: 1;
         /* başlangıçta gizli */
     }
+
+    .toast{
+        @apply dark:bg-gray-800/70! bg-gray-100/70 dark:border-gray-700/70! border-gray-200/70 backdrop-blur-sm;
+    }
 }
 
 .dancing-script {
