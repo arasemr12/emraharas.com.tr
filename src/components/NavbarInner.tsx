@@ -1,12 +1,10 @@
 "use client";
 import Link from "next/link";
-import { FaAngleDown, FaBars, FaMoon } from "react-icons/fa";
+import { FaBars, FaMoon } from "react-icons/fa";
 import { getTheme, setTheme } from "./Navbar";
 import { MouseEvent, useEffect, useState } from "react";
-import { Button, CloseButton, Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
-import { useLocale, useTranslations } from "next-intl";
-import { locales } from "@/app/lib/locales";
-import { setLocale } from "@/app/actions/server";
+import { useTranslations } from "next-intl";
+import LanguageSelector from "./LanguageSelector";
 
 export default function NavbarInner({ currentTheme }: { currentTheme: string }) {
     const changeTheme = async () => {
@@ -30,13 +28,6 @@ export default function NavbarInner({ currentTheme }: { currentTheme: string }) 
         });
     }, []);
 
-    const locale = useLocale();
-    type LocaleKey = keyof typeof locales;
-
-    const setLang = async (lang: string) => {
-        await setLocale(lang);
-    };
-
     const t = useTranslations("*");
 
     const [nav, setNav] = useState<boolean>(false);
@@ -52,24 +43,7 @@ export default function NavbarInner({ currentTheme }: { currentTheme: string }) 
                         <Link href="/projects">{t("navbar.projects")}</Link>
                         <Link href="/blog">{t("navbar.blog")}</Link>
                         <div onClick={changeTheme} className="w-4 h-4 flex items-center justify-center cursor-pointer"><FaMoon className="w-full h-auto" /></div>
-                        <Popover className="relative">
-                            {({ open }) => (
-                                <>
-                                    <PopoverButton className={'flex flex-row items-center gap-1 cursor-pointer'}>
-                                        <img className="w-[32px] h-[32px]" src={locales[locale as LocaleKey].img} alt="" />
-                                        <FaAngleDown className={`duration-300 transition-all ${open ? `rotate-180` : 'rotate-0'}`} />
-                                    </PopoverButton>
-                                    <PopoverPanel anchor="bottom" transition className="flex flex-col items-start z-60 bg-gray-800/70 border-2 border-gray-700/70 shadow py-2 px-4 rounded backdrop-blur-sm transition duration-200 ease-out data-closed:-translate-y-12 data-closed:scale-95 data-closed:opacity-0 gap-3">
-                                        {(Object.keys(locales) as Array<LocaleKey>).map((loc) => (
-                                            <CloseButton as={Button} onClick={() => setLang(loc)} className="flex flex-row items-center gap-3 cursor-pointer" key={loc}>
-                                                <img className="w-[32px] h-[32px]" src={locales[loc].img} alt="" />
-                                                <span>{locales[loc].name}</span>
-                                            </CloseButton>
-                                        ))}
-                                    </PopoverPanel>
-                                </>
-                            )}
-                        </Popover>
+                        <LanguageSelector/>
                     </div>
                 </div>
             </div>
@@ -87,24 +61,9 @@ export default function NavbarInner({ currentTheme }: { currentTheme: string }) 
                 <Link href="/projects">Projects</Link>
                 <Link href="/blog">Blog</Link>
                 <div onClick={changeTheme} className="mt-4 ml-4 w-4 h-4 flex items-center justify-center cursor-pointer"><FaMoon className="w-full h-auto" /></div>
-                <Popover className="relative mt-4 ml-4 z-200">
-                    {({ open }) => (
-                        <>
-                            <PopoverButton className={'flex flex-row items-center gap-1 cursor-pointer'}>
-                                <img className="w-[32px] h-[32px]" src={locales[locale as LocaleKey].img} alt="" />
-                                <FaAngleDown className={`duration-300 transition-all ${open ? `rotate-180` : 'rotate-0'}`} />
-                            </PopoverButton>
-                            <PopoverPanel anchor="bottom" transition className="flex flex-col items-start z-200 bg-gray-800/70 border-2 border-gray-700/70 shadow py-2 px-4 rounded backdrop-blur-sm transition duration-200 ease-out data-closed:-translate-y-12 data-closed:scale-95 data-closed:opacity-0 gap-3 ml-2 mt-2">
-                                {(Object.keys(locales) as Array<LocaleKey>).map((loc) => (
-                                    <CloseButton as={Button} onClick={() => setLang(loc)} className="flex flex-row items-center gap-3 cursor-pointer" key={loc}>
-                                        <img className="w-[32px] h-[32px]" src={locales[loc].img} alt="" />
-                                        <span>{locales[loc].name}</span>
-                                    </CloseButton>
-                                ))}
-                            </PopoverPanel>
-                        </>
-                    )}
-                </Popover>
+                <div className="ml-4 mt-4">
+                    <LanguageSelector mobile/>
+                </div>
             </div>
         </>
     )

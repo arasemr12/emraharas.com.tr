@@ -1,7 +1,14 @@
+import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { FaEnvelope, FaGithub, FaLinkedin, FaMedium, FaMediumM } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
+
+export const metadata: Metadata = {
+  alternates:{
+    canonical:"/"
+  }
+};
 
 export default function HomePage() {
   const t = useTranslations('*');

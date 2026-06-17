@@ -1,5 +1,12 @@
 import { marked } from "marked";
+import { Metadata } from "next";
 import { useLocale } from "next-intl";
+
+export const metadata: Metadata = {
+  alternates:{
+    canonical:"/privacy-policy"
+  }
+};
 
 export default function privacyPolicy() {
     let langs = {
